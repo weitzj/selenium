@@ -39,6 +39,7 @@ public @interface Ignore {
     MARIONETTE,
     OPERA,
     OPERA_MOBILE,
+    PHANTOMFX,
     PHANTOMJS,
     REMOTE,
     SAFARI,

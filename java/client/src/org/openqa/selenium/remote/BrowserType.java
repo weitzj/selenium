@@ -41,6 +41,7 @@ public interface BrowserType {
   String HTMLUNIT = "htmlunit";
   String IE = "internet explorer";
   String IPHONE = "iPhone"; 
-  String IPAD = "iPad"; 
-  String PHANTOMJS = "phantomjs"; 
+  String IPAD = "iPad";
+  String PHANTOMFX = "phantomfx";
+  String PHANTOMJS = "phantomjs";
 }

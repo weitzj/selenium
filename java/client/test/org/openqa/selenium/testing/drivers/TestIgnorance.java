@@ -28,6 +28,7 @@ import static org.openqa.selenium.testing.Ignore.Driver.IE;
 import static org.openqa.selenium.testing.Ignore.Driver.MARIONETTE;
 import static org.openqa.selenium.testing.Ignore.Driver.OPERA;
 import static org.openqa.selenium.testing.Ignore.Driver.OPERA_MOBILE;
+import static org.openqa.selenium.testing.Ignore.Driver.PHANTOMFX;
 import static org.openqa.selenium.testing.Ignore.Driver.PHANTOMJS;
 import static org.openqa.selenium.testing.Ignore.Driver.REMOTE;
 import static org.openqa.selenium.testing.Ignore.Driver.SAFARI;
@@ -197,6 +198,10 @@ public class TestIgnorance {
         comparator.addDriver(REMOTE);
         break;
 
+      case phantomfx:
+        comparator.addDriver(PHANTOMFX);
+        break;
+
       case phantomjs:
         comparator.addDriver(PHANTOMJS);
         break;
@@ -206,7 +211,7 @@ public class TestIgnorance {
         break;
 
       default:
-        throw new RuntimeException("Cannot determine which ignore to add ignores rules for");
+       throw new RuntimeException("Cannot determine which ignore to add ignores rules for");
     }
   }
 

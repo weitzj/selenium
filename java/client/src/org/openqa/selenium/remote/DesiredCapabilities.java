@@ -225,6 +225,10 @@ public class DesiredCapabilities implements Serializable, Capabilities {
     return new DesiredCapabilities(BrowserType.SAFARI, "", Platform.ANY);
   }
 
+  public static DesiredCapabilities phantomfx() {
+     return new DesiredCapabilities(BrowserType.PHANTOMFX, "", Platform.ANY);
+  }
+
   public static DesiredCapabilities phantomjs() {
     return new DesiredCapabilities(BrowserType.PHANTOMJS, "", Platform.ANY);
   }

@@ -73,6 +73,10 @@ public class BrowserToCapabilities {
         caps.setCapability(OperaSettings.Capability.PRODUCT.getCapability(), OperaProduct.MOBILE);
         break;
 
+      case phantomfx:
+        caps = DesiredCapabilities.phantomfx();
+        break;
+
       case phantomjs:
         caps = DesiredCapabilities.phantomjs();
         break;
