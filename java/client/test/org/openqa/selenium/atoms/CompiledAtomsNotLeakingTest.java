@@ -60,16 +60,16 @@ public class CompiledAtomsNotLeakingTest {
       public Object run(Context context) {
         global = context.initStandardObjects();
         global.defineProperty("_", 1234, ScriptableObject.EMPTY);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
 
         // We're using the //javascript/webdriver/atoms:execute_script atom,
         // which assumes it is used in the context of a browser window, so make
         // sure the "window" free variable is defined and refers to the global
         // context.
-        assertEquals(global, eval(context, "this.window=this;"));
-        assertEquals(global, eval(context, "this"));
-        assertEquals(global, eval(context, "window"));
-        assertEquals(true, eval(context, "this === window"));
+        assertEquals(global, (long)eval(context, "this.window=this;"));
+        assertEquals(global, (long)eval(context, "this"));
+        assertEquals(global, (long)eval(context, "window"));
+        assertEquals(true, (long)eval(context, "this === window"));
 
         return null;
       }
@@ -83,22 +83,22 @@ public class CompiledAtomsNotLeakingTest {
       @Override
       public Object run(Context context) {
         eval(context, "(" + fragment + ")()", FRAGMENT_PATH);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
 
         eval(context, "(" + fragment + ").call(this)", FRAGMENT_PATH);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
 
         eval(context, "(" + fragment + ").apply(this,[])", FRAGMENT_PATH);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
 
         eval(context, "(" + fragment + ").call(null)", FRAGMENT_PATH);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
 
         eval(context, "(" + fragment + ").apply(null,[])", FRAGMENT_PATH);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
 
         eval(context, "(" + fragment + ").call({})", FRAGMENT_PATH);
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
         return null;
       }
     });
@@ -130,7 +130,7 @@ public class CompiledAtomsNotLeakingTest {
           throw new RuntimeException("JSON result was: " + jsonResult, e);
         }
 
-        assertEquals(1234, eval(context, "_"));
+        assertEquals(1234, (long)eval(context, "_"));
         return null;
       }
     });
